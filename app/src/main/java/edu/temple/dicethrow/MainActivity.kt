@@ -36,7 +36,10 @@ class MainActivity : AppCompatActivity(), ButtonFragment.ButtonInterface {
                     .commit()
             }
             else {
-
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container1, ButtonFragment())
+                    .replace(R.id.container2, DieFragment())
+                    .commit()
             }
         }
     }
@@ -45,10 +48,8 @@ class MainActivity : AppCompatActivity(), ButtonFragment.ButtonInterface {
         */
     // Remember to place Fragment transactions on BackStack so then can be reversed
     override fun buttonClicked() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container1, DieFragment())
-            .addToBackStack(null)
-            .commit()
     }
+
+
 }
 
